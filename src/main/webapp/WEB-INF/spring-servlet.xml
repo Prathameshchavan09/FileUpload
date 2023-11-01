@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -16,25 +15,20 @@
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		">
 
+   <tx:annotation-driven />
+
+	<!-- controller of model and database -->
+	<context:component-scan base-package="springSearch"></context:component-scan>
 
 
 
 
-	<tx:annotation-driven />
-
-	<context:component-scan
-		base-package="springSearch"></context:component-scan>
-		
-
-<!--    This Configuration is for Enabling Public for Direct Access since the DispacherServelet did not allow for the direct access so this is used -->
-	<mvc:annotation-driven />
+ <mvc:annotation-driven />
+ 
+   
+ 
     <mvc:resources location="/WEB-INF/resources/" mapping="/resources/**" />
    
-<!--    This Configuration is for Enabling Public for Direct Access since the DispacherServelet did not allow for the direct access so this is used -->
-
-
-
-
 	<!-- view Resolver -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -43,16 +37,8 @@
 	</bean>
 
 
-	<!-- MultipartResolver config -->
 
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	</bean>
-
-
-
-
-<bean
+	<bean
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="ds">
 		<property name="driverClassName"
@@ -94,6 +80,5 @@
 	 <bean class= "org.springframework.orm.hibernate5.HibernateTransactionManager" name="transactionManager"> 
 		<property name="sessionFactory" ref= "factory"></property> 
 		</bean>
-
 
 </beans>

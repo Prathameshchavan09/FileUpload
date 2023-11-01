@@ -1,4 +1,4 @@
-package springSearch;
+package springSearch.controller;
 
 
 import java.io.IOException;

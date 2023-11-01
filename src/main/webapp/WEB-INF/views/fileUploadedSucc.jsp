@@ -9,6 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${Size}</h1>
+<h1>${message}</h1>
 </body>
 </html>
